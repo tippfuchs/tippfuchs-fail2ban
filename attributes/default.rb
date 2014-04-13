@@ -15,12 +15,5 @@ default['fail2ban']['mta']        = 'sendmail'
 default['fail2ban']['protocol']   = 'tcp'
 default['fail2ban']['chain']      = 'INPUT'
 
-default['fail2ban']['services']   = {
-  'ssh' => {
-        'enabled' => 'true',
-        'port' => 'ssh',
-        'filter' => 'sshd',
-        'logpath' => node['fail2ban']['auth_log'],
-        'maxretry' => '6'
-     }
-}
+# services are managed by fail2ban_jail definitions
+default['fail2ban']['services'] = { }
